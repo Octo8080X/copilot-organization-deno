@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "@agentclientprotocol/sdk": "npm:@agentclientprotocol/sdk@^0.16.1",
+    "@db/sqlite": "jsr:@db/sqlite@0.12",
+    "@std/async": "jsr:@std/async@^1.2.0"
+  },
+  "tasks": {
+    "web": "deno run --allow-net --no-prompt web.ts",
+    "kanban": "deno run --allow-read --allow-write --allow-ffi --allow-env --unstable-ffi kanban.ts",
+    "okinawa": "copilot --disallow-temp-dir --agent=\"task-okinawa\" --allow-tool=\"shell(deno:*)\" --allow-tool=\"shell(Where-Object)\" --allow-tool=\"shell(ConvertFrom-Json)\" --allow-tool=\"shell(Write-Output)\" --allow-tool=\"shell(Select-String)\" --allow-tool=\"shell(Select-Object)\" --allow-url=wttr.in --prompt=\"タスク実行\"",
+    "decompose": "copilot --disallow-temp-dir --agent=\"task-decompose\" --allow-tool=\"shell(deno:*)\" --allow-all-urls --prompt=\"タスク実行\"",
+    "report": "copilot --disallow-temp-dir --agent=\"task-reporter\" --allow-tool=\"shell(deno:*)\" --prompt=\"タスク実行\"",
+
+    "okinawa-acp": "copilot --disallow-temp-dir --agent=\"task-okinawa\" --allow-tool=\"shell(deno:*)\" --allow-tool=\"shell(Where-Object)\" --allow-tool=\"shell(ConvertFrom-Json)\" --allow-tool=\"shell(Write-Output)\" --allow-tool=\"shell(Select-String)\" --allow-tool=\"shell(Select-Object)\" --allow-url=wttr.in --use-acp --acp-port=9001 --prompt=\"タスク実行\"",
+    "decompose-acp": "copilot --disallow-temp-dir --agent=\"task-decompose\" --allow-tool=\"shell(deno:*)\" --allow-all-urls --use-acp --acp-port=9002 --prompt=\"タスク実行\"",
+    "report-acp": "copilot --disallow-temp-dir --agent=\"task-reporter\" --allow-tool=\"shell(deno:*)\" --use-acp --acp-port=9003 --prompt=\"タスク実行\""
+  }
+}
